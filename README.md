@@ -65,41 +65,42 @@ All collected data is cleaned, transformed into a structured star schema, and lo
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                        Docker Compose Stack                          │
-│                                                                      │
+│                        Docker Compose Stack                         │
+│                                                                     │
 │  ┌──────────────┐    ┌──────────────┐    ┌────────────────────────┐ │
 │  │    Redis     │    │  PostgreSQL  │    │   Selenium Chrome      │ │
 │  │  (Celery     │    │  (Airflow    │    │   Standalone           │ │
 │  │   Broker)    │    │   Metadata)  │    │   (Web Scraping)       │ │
 │  └──────┬───────┘    └──────┬───────┘    └────────────┬───────────┘ │
-│         │                  │                          │             │
-│  ┌──────▼──────────────────▼──────────────────────────▼───────────┐ │
-│  │                   Apache Airflow 2.9.1                          │ │
-│  │   ┌────────────┐  ┌─────────────┐  ┌──────────┐  ┌─────────┐  │ │
-│  │   │ Webserver  │  │  Scheduler  │  │  Worker  │  │Triggerer│  │ │
-│  │   │ :8081      │  │             │  │ (Celery) │  │         │  │ │
-│  │   └────────────┘  └─────────────┘  └──────────┘  └─────────┘  │ │
-│  └─────────────────────────┬───────────────────────────────────────┘ │
-│                            │ DAG Execution                           │
+│         │                   │                         │             │
+│  ┌──────▼───────────────────▼─────────────────────────▼───────────┐ │
+│  │                   Apache Airflow 2.9.1                         │ │
+│  │   ┌────────────┐  ┌─────────────┐  ┌──────────┐  ┌─────────┐   │ │
+│  │   │ Webserver  │  │  Scheduler  │  │  Worker  │  │Triggerer│   │ │
+│  │   │ :8081      │  │             │  │ (Celery) │  │         │   │ │
+│  │   └────────────┘  └─────────────┘  └──────────┘  └─────────┘   │ │
+│  └─────────────────────────┬──────────────────────────────────────┘ │
+│                            │ DAG Execution                          │
 └────────────────────────────┼────────────────────────────────────────┘
                              │
           ┌──────────────────▼──────────────────┐
-          │           Weekly ETL DAG             │
-          │                                      │
-          │  [Scrape Booking] ──┐                │
-          │                    ├──► [Transform]  │
-          │  [Scrape Talabat] ──┘       │        │
-          │                            ▼        │
-          │                    [Load to Supabase]│
-          └──────────────────────────────────────┘
+          │           Weekly ETL DAG            │
+          │                                     │
+          │ [Scrape Booking] ──┐                │
+          │                    ├─► [Transform]  │
+          │ [Scrape Talabat] ──┘      │         │
+          │                           ▼         │
+          │                  [Load to Supabase] │
+          └─────────────────────────────────────┘
                                        │
                           ┌────────────▼────────────┐
-                          │   Supabase PostgreSQL    │
-                          │   (Cloud Data Warehouse) │
-                          └──────────────────────────┘
+                          │   Supabase PostgreSQL   │
+                          │  (Cloud Data Warehouse) │
+                          └─────────────────────────┘
 ```
 
 ---
+
 
 ## 🔁 Pipeline Flow
 
@@ -109,8 +110,8 @@ The pipeline is orchestrated as an Airflow DAG that runs **every week** automati
 START
   │
   ├─────────────────────────────────────────────────┐
-  │                                                  │
-  ▼                                                  ▼
+  │                                                 │
+  ▼                                                 ▼
 [Task 1A]                                       [Task 1B]
 Scrape Booking.com                           Scrape Talabat
 (Hotels data for                             (Restaurants data for
@@ -119,22 +120,22 @@ Scrape Booking.com                           Scrape Talabat
   └──────────────────┬───────────────────────────────┘
                      │  (Run in Parallel)
                      ▼
-               [Task 2]
-         Clean & Transform Data
-         • Standardize columns
-         • Handle nulls & types
-         • Deduplicate records
-         • Map to star schema
+                 [Task 2]
+          Clean & Transform Data
+           • Standardize columns
+           • Handle nulls & types
+           • Deduplicate records
+           • Map to star schema
                      │
                      ▼
-               [Task 3]
-         Load to Supabase PostgreSQL
-         • Upsert with conflict handling
-         • NaN-safe JSON serialization
-         • Batch inserts per table
+                  [Task 3]
+          Load to Supabase PostgreSQL
+           • Upsert with conflict handling
+           • NaN-safe JSON serialization
+           • Batch inserts per table
                      │
                      ▼
-                   END
+                    END
 ```
 
 ### Stage Details
@@ -217,7 +218,7 @@ The data warehouse follows a **Star Schema** design with one central fact table 
   ┌────────────────────────┐                        ┌─────────────────────────┐
   │      dim_hotels        │                        │     dim_restaurants     │
   │────────────────────────│                        │─────────────────────────│
-  │ 🔑 hotel_id     int4   │                        │ 🔑 restaurant_id  int4  │
+  │ 🔑 hotel_id     int4   │                       │  🔑 restaurant_id  int4 │
   │    city         text   │                        │    city           text  │
   │    hotel_name   text   │                        │    restaurant_name text │
   │    price        numeric│                        │    location       text  │
@@ -225,14 +226,14 @@ The data warehouse follows a **Star Schema** design with one central fact table 
   │    hotel_url    text   │                        │    url            text  │
   │    description  text   │                        │    total_items    int4  │
   │    latitude     numeric│                        │    prices_list    text  │
-  │    longitude    numeric│                        │    min_price      numeric│
-  │    distance_km  numeric│                        │    max_price      numeric│
-  └──────────┬─────────────┘                        │    avg_price      numeric│
+  │    longitude    numeric│                        │    min_price     numeric│
+  │    distance_km  numeric│                        │    max_price     numeric│
+  └──────────┬─────────────┘                        │    avg_price     numeric│
              │                                      └───────────┬─────────────┘
              │                                                  │
-             │          ┌──────────────────────┐               │
+             │          ┌──────────────────────┐                │
              │          │      fact_trips       │               │
-             └──────────┤──────────────────────├───────────────┘
+             └──────────┤──────────────────── ──├───────────────┘
                         │ 🔑 trip_id      int4  │
                         │ 🔗 hotel_id     int4  │
                         │ 🔗 room_id      int4  │
@@ -241,11 +242,11 @@ The data warehouse follows a **Star Schema** design with one central fact table 
                         └──────┬───────┬────────┘
                                │       │
              ┌─────────────────┘       └──────────────────────┐
-             │                                                 │
+             │                                                │
   ┌──────────▼──────────────┐               ┌─────────────────▼────────┐
   │     dim_room_hotel      │               │       dim_places         │
   │─────────────────────────│               │──────────────────────────│
-  │ 🔑 room_id       int4   │               │ 🔑 place_id       int4   │
+  │ 🔑 room_id       int4   │               │ 🔑 place_id       int4  │
   │ 🔗 hotel_id      int4   │               │    city           text   │
   │    city          text   │               │    title          text   │
   │    hotel_name    text   │               │    rating         numeric│
