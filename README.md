@@ -65,8 +65,8 @@ All collected data is cleaned, transformed into a structured star schema, and lo
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                        Docker Compose Stack                          │
-│                                                                      │
+│                        Docker Compose Stack                         │
+│                                                                     │
 │  ┌──────────────┐    ┌──────────────┐    ┌────────────────────────┐ │
 │  │    Redis     │    │  PostgreSQL  │    │   Selenium Chrome      │ │
 │  │  (Celery     │    │  (Airflow    │    │   Standalone           │ │
@@ -74,29 +74,29 @@ All collected data is cleaned, transformed into a structured star schema, and lo
 │  └──────┬───────┘    └──────┬───────┘    └────────────┬───────────┘ │
 │         │                  │                          │             │
 │  ┌──────▼──────────────────▼──────────────────────────▼───────────┐ │
-│  │                   Apache Airflow 2.9.1                          │ │
-│  │   ┌────────────┐  ┌─────────────┐  ┌──────────┐  ┌─────────┐  │ │
-│  │   │ Webserver  │  │  Scheduler  │  │  Worker  │  │Triggerer│  │ │
-│  │   │ :8081      │  │             │  │ (Celery) │  │         │  │ │
-│  │   └────────────┘  └─────────────┘  └──────────┘  └─────────┘  │ │
-│  └─────────────────────────┬───────────────────────────────────────┘ │
-│                            │ DAG Execution                           │
+│  │                   Apache Airflow 2.9.1                         │ │
+│  │   ┌────────────┐  ┌─────────────┐  ┌──────────┐  ┌─────────┐   │ │
+│  │   │ Webserver  │  │  Scheduler  │  │  Worker  │  │Triggerer│   │ │
+│  │   │ :8081      │  │             │  │ (Celery) │  │         │   │ │
+│  │   └────────────┘  └─────────────┘  └──────────┘  └─────────┘   │ │
+│  └─────────────────────────┬──────────────────────────────────────┘ │
+│                            │ DAG Execution                          │
 └────────────────────────────┼────────────────────────────────────────┘
                              │
           ┌──────────────────▼──────────────────┐
-          │           Weekly ETL DAG             │
-          │                                      │
-          │  [Scrape Booking] ──┐                │
-          │                    ├──► [Transform]  │
-          │  [Scrape Talabat] ──┘       │        │
+          │           Weekly ETL DAG            │
+          │                                     │
+          │ [Scrape Booking] ──┐                │
+          │                    ├─► [Transform]  │
+          │ [Scrape Talabat] ──┘      │         │
           │                            ▼        │
-          │                    [Load to Supabase]│
-          └──────────────────────────────────────┘
+          │                  [Load to Supabase] │
+          └─────────────────────────────────────┘
                                        │
                           ┌────────────▼────────────┐
-                          │   Supabase PostgreSQL    │
-                          │   (Cloud Data Warehouse) │
-                          └──────────────────────────┘
+                          │   Supabase PostgreSQL   │
+                          │  (Cloud Data Warehouse) │
+                          └─────────────────────────┘
 ```
 
 ---
@@ -119,22 +119,22 @@ Scrape Booking.com                           Scrape Talabat
   └──────────────────┬───────────────────────────────┘
                      │  (Run in Parallel)
                      ▼
-               [Task 2]
-         Clean & Transform Data
-         • Standardize columns
-         • Handle nulls & types
-         • Deduplicate records
-         • Map to star schema
+                  [Task 2]
+          Clean & Transform Data
+           • Standardize columns
+           • Handle nulls & types
+           • Deduplicate records
+           • Map to star schema
                      │
                      ▼
-               [Task 3]
-         Load to Supabase PostgreSQL
-         • Upsert with conflict handling
-         • NaN-safe JSON serialization
-         • Batch inserts per table
+                  [Task 3]
+        Load to Supabase PostgreSQL
+          • Upsert with conflict handling
+          • NaN-safe JSON serialization
+          • Batch inserts per table
                      │
                      ▼
-                   END
+                    END
 ```
 
 ### Stage Details
