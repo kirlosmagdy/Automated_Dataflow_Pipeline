@@ -65,8 +65,8 @@ All collected data is cleaned, transformed into a structured star schema, and lo
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                        Docker Compose Stack                         │
-│                                                                     │
+│                        Docker Compose Stack                          │
+│                                                                      │
 │  ┌──────────────┐    ┌──────────────┐    ┌────────────────────────┐ │
 │  │    Redis     │    │  PostgreSQL  │    │   Selenium Chrome      │ │
 │  │  (Celery     │    │  (Airflow    │    │   Standalone           │ │
@@ -74,29 +74,29 @@ All collected data is cleaned, transformed into a structured star schema, and lo
 │  └──────┬───────┘    └──────┬───────┘    └────────────┬───────────┘ │
 │         │                  │                          │             │
 │  ┌──────▼──────────────────▼──────────────────────────▼───────────┐ │
-│  │                   Apache Airflow 2.9.1                         │ │
-│  │   ┌────────────┐  ┌─────────────┐  ┌──────────┐  ┌─────────┐   │ │
-│  │   │ Webserver  │  │  Scheduler  │  │  Worker  │  │Triggerer│   │ │
-│  │   │ :8081      │  │             │  │ (Celery) │  │         │   │ │
-│  │   └────────────┘  └─────────────┘  └──────────┘  └─────────┘   │ │
-│  └─────────────────────────┬──────────────────────────────────────┘ │
-│                            │ DAG Execution                          │
+│  │                   Apache Airflow 2.9.1                          │ │
+│  │   ┌────────────┐  ┌─────────────┐  ┌──────────┐  ┌─────────┐  │ │
+│  │   │ Webserver  │  │  Scheduler  │  │  Worker  │  │Triggerer│  │ │
+│  │   │ :8081      │  │             │  │ (Celery) │  │         │  │ │
+│  │   └────────────┘  └─────────────┘  └──────────┘  └─────────┘  │ │
+│  └─────────────────────────┬───────────────────────────────────────┘ │
+│                            │ DAG Execution                           │
 └────────────────────────────┼────────────────────────────────────────┘
                              │
           ┌──────────────────▼──────────────────┐
-          │           Weekly ETL DAG            │
-          │                                     │
-          │ [Scrape Booking] ──┐                │
-          │                    ├─► [Transform]  │
-          │ [Scrape Talabat] ──┘      │         │
+          │           Weekly ETL DAG             │
+          │                                      │
+          │  [Scrape Booking] ──┐                │
+          │                    ├──► [Transform]  │
+          │  [Scrape Talabat] ──┘       │        │
           │                            ▼        │
-          │                  [Load to Supabase] │
-          └─────────────────────────────────────┘
+          │                    [Load to Supabase]│
+          └──────────────────────────────────────┘
                                        │
                           ┌────────────▼────────────┐
-                          │   Supabase PostgreSQL   │
-                          │  (Cloud Data Warehouse) │
-                          └─────────────────────────┘
+                          │   Supabase PostgreSQL    │
+                          │   (Cloud Data Warehouse) │
+                          └──────────────────────────┘
 ```
 
 ---
@@ -119,22 +119,22 @@ Scrape Booking.com                           Scrape Talabat
   └──────────────────┬───────────────────────────────┘
                      │  (Run in Parallel)
                      ▼
-                  [Task 2]
-          Clean & Transform Data
-           • Standardize columns
-           • Handle nulls & types
-           • Deduplicate records
-           • Map to star schema
+               [Task 2]
+         Clean & Transform Data
+         • Standardize columns
+         • Handle nulls & types
+         • Deduplicate records
+         • Map to star schema
                      │
                      ▼
-                  [Task 3]
-        Load to Supabase PostgreSQL
-          • Upsert with conflict handling
-          • NaN-safe JSON serialization
-          • Batch inserts per table
+               [Task 3]
+         Load to Supabase PostgreSQL
+         • Upsert with conflict handling
+         • NaN-safe JSON serialization
+         • Batch inserts per table
                      │
                      ▼
-                    END
+                   END
 ```
 
 ### Stage Details
@@ -211,40 +211,61 @@ Automated_Dataflow_Pipeline/
 
 ## 📊 Data Model
 
-The data warehouse follows a **Star Schema** design:
+The data warehouse follows a **Star Schema** design with one central fact table connected to four dimension tables:
 
 ```
-                    ┌──────────────────┐
-                    │   fact_trips     │
-                    │──────────────────│
-                    │  trip_id (PK)    │
-                    │  hotel_id (FK)   │──────────► dim_hotels
-                    │  room_id (FK)    │──────────► dim_room_hotel
-                    │  restaurant_id   │──────────► dim_restaurants
-                    │  place_id (FK)   │──────────► dim_places
-                    │  ...metrics...   │
-                    └──────────────────┘
-
-┌──────────────────┐    ┌────────────────────┐    ┌──────────────────┐
-│   dim_hotels     │    │   dim_room_hotel   │    │ dim_restaurants  │
-│────────────────  │    │────────────────────│    │──────────────────│
-│ hotel_id (PK)    │    │ room_id (PK)       │    │ restaurant_id(PK)│
-│ name             │    │ hotel_id (FK)      │    │ name             │
-│ city             │    │ room_type          │    │ cuisine          │
-│ rating           │    │ price_per_night    │    │ rating           │
-│ review_count     │    │ ...                │    │ delivery_area    │
-│ ...              │    └────────────────────┘    │ ...              │
-└──────────────────┘                              └──────────────────┘
-
-                    ┌──────────────────┐
-                    │   dim_places     │
-                    │──────────────────│
-                    │ place_id (PK)    │
-                    │ city             │
-                    │ region           │
-                    │ country          │
-                    └──────────────────┘
+  ┌────────────────────────┐                        ┌─────────────────────────┐
+  │      dim_hotels        │                        │     dim_restaurants     │
+  │────────────────────────│                        │─────────────────────────│
+  │ 🔑 hotel_id     int4   │                        │ 🔑 restaurant_id  int4  │
+  │    city         text   │                        │    city           text  │
+  │    hotel_name   text   │                        │    restaurant_name text │
+  │    price        numeric│                        │    location       text  │
+  │    review_score numeric│                        │    cuisines       text  │
+  │    hotel_url    text   │                        │    url            text  │
+  │    description  text   │                        │    total_items    int4  │
+  │    latitude     numeric│                        │    prices_list    text  │
+  │    longitude    numeric│                        │    min_price      numeric│
+  │    distance_km  numeric│                        │    max_price      numeric│
+  └──────────┬─────────────┘                        │    avg_price      numeric│
+             │                                      └───────────┬─────────────┘
+             │                                                  │
+             │          ┌──────────────────────┐               │
+             │          │      fact_trips       │               │
+             └──────────┤──────────────────────├───────────────┘
+                        │ 🔑 trip_id      int4  │
+                        │ 🔗 hotel_id     int4  │
+                        │ 🔗 room_id      int4  │
+                        │ 🔗 restaurant_id int4 │
+                        │ 🔗 place_id     int4  │
+                        └──────┬───────┬────────┘
+                               │       │
+             ┌─────────────────┘       └──────────────────────┐
+             │                                                 │
+  ┌──────────▼──────────────┐               ┌─────────────────▼────────┐
+  │     dim_room_hotel      │               │       dim_places         │
+  │─────────────────────────│               │──────────────────────────│
+  │ 🔑 room_id       int4   │               │ 🔑 place_id       int4   │
+  │ 🔗 hotel_id      int4   │               │    city           text   │
+  │    city          text   │               │    title          text   │
+  │    hotel_name    text   │               │    rating         numeric│
+  │    hotel_url     text   │               │    reviews        numeric│
+  │    number_of_guests text│               │    description    text   │
+  │    price_5_nights  text │               │    tips           text   │
+  │    your_choices    text │               │    address        text   │
+  │    room_name       text │               │    timings        text   │
+  │    features        text │               │    ticket_price   numeric│
+  └─────────────────────────┘               │    avg_ticket_price numeric│
+                                            └──────────────────────────┘
 ```
+
+| Table | Row Count | Description |
+|-------|-----------|-------------|
+| `fact_trips` | — | Central fact table linking all dimensions |
+| `dim_hotels` | — | Hotel details scraped from Booking.com |
+| `dim_room_hotel` | — | Room-level data per hotel from Booking.com |
+| `dim_restaurants` | — | Restaurant data scraped from Talabat |
+| `dim_places` | — | Tourist attractions & landmarks by city |
 
 ---
 
