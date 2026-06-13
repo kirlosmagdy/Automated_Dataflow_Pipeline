@@ -1,0 +1,50 @@
+[2026-05-19T18:22:28.420+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-19T18:22:28.492+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weekly_data_pipeline.run_transform manual__2026-05-19T17:38:35.676858+00:00 [queued]>
+[2026-05-19T18:22:28.509+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weekly_data_pipeline.run_transform manual__2026-05-19T17:38:35.676858+00:00 [queued]>
+[2026-05-19T18:22:28.509+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-05-19T18:22:28.530+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_transform> on 2026-05-19 17:38:35.676858+00:00
+[2026-05-19T18:22:28.541+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=2651) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-05-19T18:22:28.544+0000] {standard_task_runner.py:63} INFO - Started process 2652 to run task
+[2026-05-19T18:22:28.543+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weekly_data_pipeline', 'run_transform', 'manual__2026-05-19T17:38:35.676858+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/weekly_pipeline.py', '--cfg-path', '/tmp/tmpz5t3yei9']
+[2026-05-19T18:22:28.545+0000] {standard_task_runner.py:91} INFO - Job 17: Subtask run_transform
+[2026-05-19T18:22:28.624+0000] {task_command.py:426} INFO - Running <TaskInstance: weekly_data_pipeline.run_transform manual__2026-05-19T17:38:35.676858+00:00 [running]> on host 241dc414be10
+[2026-05-19T18:22:28.756+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='koka' AIRFLOW_CTX_DAG_ID='weekly_data_pipeline' AIRFLOW_CTX_TASK_ID='run_transform' AIRFLOW_CTX_EXECUTION_DATE='2026-05-19T17:38:35.676858+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-19T17:38:35.676858+00:00'
+[2026-05-19T18:22:28.758+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-19T18:22:28.833+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-19T18:22:28.837+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/scripts/transformation_script.py']
+[2026-05-19T18:22:28.859+0000] {subprocess.py:86} INFO - Output:
+[2026-05-19T18:22:31.094+0000] {subprocess.py:93} INFO - 🚀 Starting transformation pipeline...
+[2026-05-19T18:22:31.095+0000] {subprocess.py:93} INFO -    Scraping dir : /opt/***/scraping_scripts/Data_files
+[2026-05-19T18:22:31.096+0000] {subprocess.py:93} INFO -    Database dir : /opt/***/database/Data_files
+[2026-05-19T18:22:31.097+0000] {subprocess.py:93} INFO - 
+[2026-05-19T18:22:31.097+0000] {subprocess.py:93} INFO - 📂 Preparing: restaurants
+[2026-05-19T18:22:31.098+0000] {subprocess.py:93} INFO -   ✔ Loaded [alexandria]: alex_2026-05-19_talabat.csv
+[2026-05-19T18:22:31.098+0000] {subprocess.py:93} INFO -   ✔ Loaded [cairo]: cairo_2026-05-19_talabat.csv
+[2026-05-19T18:22:31.099+0000] {subprocess.py:93} INFO -   ✔ Saved 60 rows → restaurants.csv
+[2026-05-19T18:22:31.099+0000] {subprocess.py:93} INFO - 
+[2026-05-19T18:22:31.100+0000] {subprocess.py:93} INFO - 📂 Preparing: hotels
+[2026-05-19T18:22:31.101+0000] {subprocess.py:93} INFO -   ✔ Loaded [alexandria]: Alexandria_2026-05-19_booking.csv
+[2026-05-19T18:22:31.101+0000] {subprocess.py:93} INFO -   ✔ Loaded [cairo]: Cairo_2026-05-19_booking.csv
+[2026-05-19T18:22:31.102+0000] {subprocess.py:93} INFO -   ✔ Loaded [luxor]: Luxor_2026-05-19_booking.csv
+[2026-05-19T18:22:31.102+0000] {subprocess.py:93} INFO -   ✔ Loaded [sharm]: Sharm El Sheikh_2026-05-19_booking.csv
+[2026-05-19T18:22:31.103+0000] {subprocess.py:93} INFO -   ✔ Saved 100 rows → hotels.csv
+[2026-05-19T18:22:31.104+0000] {subprocess.py:93} INFO - 
+[2026-05-19T18:22:31.104+0000] {subprocess.py:93} INFO - 📂 Preparing: room_hotels
+[2026-05-19T18:22:31.105+0000] {subprocess.py:93} INFO -   ✔ Loaded [alexandria]: Alexandria_2026-05-19_booking_rooms.csv
+[2026-05-19T18:22:31.106+0000] {subprocess.py:93} INFO -   ✔ Loaded [cairo]: Cairo_2026-05-19_booking_rooms.csv
+[2026-05-19T18:22:31.107+0000] {subprocess.py:93} INFO -   ✔ Loaded [luxor]: Luxor_2026-05-19_booking_rooms.csv
+[2026-05-19T18:22:31.108+0000] {subprocess.py:93} INFO -   ✔ Loaded [sharm]: Sharm El Sheikh_2026-05-19_booking_rooms.csv
+[2026-05-19T18:22:31.108+0000] {subprocess.py:93} INFO -   ✔ Saved 744 rows → room_hotels.csv
+[2026-05-19T18:22:31.109+0000] {subprocess.py:93} INFO - 
+[2026-05-19T18:22:31.110+0000] {subprocess.py:93} INFO - 📂 Preparing: places (column rename only)
+[2026-05-19T18:22:31.110+0000] {subprocess.py:93} INFO -   ✔ Saved 391 rows → places.csv
+[2026-05-19T18:22:31.111+0000] {subprocess.py:93} INFO - 
+[2026-05-19T18:22:31.112+0000] {subprocess.py:93} INFO - ✅ All transformations complete.
+[2026-05-19T18:22:31.190+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-05-19T18:22:31.191+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-19T18:22:31.223+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=weekly_data_pipeline, task_id=run_transform, run_id=manual__2026-05-19T17:38:35.676858+00:00, execution_date=20260519T173835, start_date=20260519T182228, end_date=20260519T182231
+[2026-05-19T18:22:31.258+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-05-19T18:22:31.292+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-05-19T18:22:31.306+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,149 @@
+[2026-05-09T18:12:16.997+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-09T18:12:17.243+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weekly_data_pipeline.run_booking_scraper manual__2026-05-09T18:12:13.898928+00:00 [queued]>
+[2026-05-09T18:12:17.369+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weekly_data_pipeline.run_booking_scraper manual__2026-05-09T18:12:13.898928+00:00 [queued]>
+[2026-05-09T18:12:17.379+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-05-09T18:12:17.464+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_booking_scraper> on 2026-05-09 18:12:13.898928+00:00
+[2026-05-09T18:12:17.488+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=243) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-05-09T18:12:17.499+0000] {standard_task_runner.py:63} INFO - Started process 245 to run task
+[2026-05-09T18:12:17.509+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weekly_data_pipeline', 'run_booking_scraper', 'manual__2026-05-09T18:12:13.898928+00:00', '--job-id', '39', '--raw', '--subdir', 'DAGS_FOLDER/weekly_pipeline.py', '--cfg-path', '/tmp/tmpkump2hst']
+[2026-05-09T18:12:17.515+0000] {standard_task_runner.py:91} INFO - Job 39: Subtask run_booking_scraper
+[2026-05-09T18:12:17.886+0000] {task_command.py:426} INFO - Running <TaskInstance: weekly_data_pipeline.run_booking_scraper manual__2026-05-09T18:12:13.898928+00:00 [running]> on host 00aef602c10c
+[2026-05-09T18:12:18.142+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='koka' AIRFLOW_CTX_DAG_ID='weekly_data_pipeline' AIRFLOW_CTX_TASK_ID='run_booking_scraper' AIRFLOW_CTX_EXECUTION_DATE='2026-05-09T18:12:13.898928+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-09T18:12:13.898928+00:00'
+[2026-05-09T18:12:18.147+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-09T18:12:18.195+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-09T18:12:18.200+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/scripts/booking_scraper.py']
+[2026-05-09T18:12:18.298+0000] {subprocess.py:86} INFO - Output:
+[2026-05-09T18:22:37.674+0000] {subprocess.py:93} INFO - 
+[2026-05-09T18:22:37.745+0000] {subprocess.py:93} INFO - ==================================================
+[2026-05-09T18:22:37.749+0000] {subprocess.py:93} INFO - 🏙️  Scraping: Alexandria
+[2026-05-09T18:22:37.750+0000] {subprocess.py:93} INFO - ==================================================
+[2026-05-09T18:22:37.753+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.755+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.756+0000] {subprocess.py:93} INFO - 🌍 Opening search: https://www.booking.com/searchresults.html?ss=Alexandria&checkin=2026-07-10&checkout=2026-07-15&group_adults=2&no_rooms=1&group_children=0&selected_currency=USD&lang=en-us&soz=1
+[2026-05-09T18:22:37.760+0000] {subprocess.py:93} INFO - 🏨 Loaded cards: 25
+[2026-05-09T18:22:37.762+0000] {subprocess.py:93} INFO - ✅ Reached target of 25 hotels.
+[2026-05-09T18:22:37.764+0000] {subprocess.py:93} INFO - 🔍 Found 25 hotel cards on current page
+[2026-05-09T18:22:37.768+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.769+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.771+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.773+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.775+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.776+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.777+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.780+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.785+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.787+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.788+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.789+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.791+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.792+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.793+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.794+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.795+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.802+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.805+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.805+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.807+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.809+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.810+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.810+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.811+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.816+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.818+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.820+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.821+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.821+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.823+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.824+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.824+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.825+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.826+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.826+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.827+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.828+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.830+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.831+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.832+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.833+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.837+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.839+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.839+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.840+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.841+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.841+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.842+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T18:22:37.843+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T18:22:37.844+0000] {subprocess.py:93} INFO - 
+[2026-05-09T18:22:37.844+0000] {subprocess.py:93} INFO - 💾 Saved 25 hotels   → Alexandria_2026-05-09_booking.csv
+[2026-05-09T18:22:37.846+0000] {subprocess.py:93} INFO - 💾 Saved 171 room rows → Alexandria_2026-05-09_booking_rooms.csv
+[2026-05-09T18:22:37.847+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-05-09T18:22:37.848+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/booking_scraper.py", line 595, in <module>
+[2026-05-09T18:22:37.857+0000] {subprocess.py:93} INFO -     hotels_df, rooms_df = run_scraping(city, CHECKIN, CHECKOUT, hotel_limit=LIMIT)
+[2026-05-09T18:22:37.859+0000] {subprocess.py:93} INFO -                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-05-09T18:22:37.860+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/booking_scraper.py", line 589, in run_scraping
+[2026-05-09T18:22:37.863+0000] {subprocess.py:93} INFO -     driver.quit()
+[2026-05-09T18:22:37.864+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 574, in quit
+[2026-05-09T18:22:37.865+0000] {subprocess.py:93} INFO -     self.execute(Command.QUIT)
+[2026-05-09T18:22:37.866+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 450, in execute
+[2026-05-09T18:22:37.867+0000] {subprocess.py:93} INFO -     self.error_handler.check_response(response)
+[2026-05-09T18:22:37.868+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/selenium/webdriver/remote/errorhandler.py", line 232, in check_response
+[2026-05-09T18:22:37.870+0000] {subprocess.py:93} INFO -     raise exception_class(message, screen, stacktrace)
+[2026-05-09T18:22:37.871+0000] {subprocess.py:93} INFO - selenium.common.exceptions.InvalidSessionIdException: Message: Unable to find session with ID: 69823015a1fe910dda29efc6d46b451f. Session was removed at 2026-05-09T18:18:05.712506176Z (271 seconds ago), reason: session timed out due to inactivity, node: http://172.18.0.4:4444
+[2026-05-09T18:22:37.872+0000] {subprocess.py:93} INFO - Build info: version: '4.43.0', revision: 'dd0f534'
+[2026-05-09T18:22:37.873+0000] {subprocess.py:93} INFO - System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.6.87.2-microsoft-standard-WSL2', java.version: '21.0.10'
+[2026-05-09T18:22:37.875+0000] {subprocess.py:93} INFO - Driver info: driver.version: unknown; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+[2026-05-09T18:22:37.878+0000] {subprocess.py:93} INFO - Stacktrace:
+[2026-05-09T18:22:37.879+0000] {subprocess.py:93} INFO - org.openqa.selenium.NoSuchSessionException: Unable to find session with ID: 69823015a1fe910dda29efc6d46b451f. Session was removed at 2026-05-09T18:18:05.712506176Z (271 seconds ago), reason: session timed out due to inactivity, node: http://172.18.0.4:4444
+[2026-05-09T18:22:37.881+0000] {subprocess.py:93} INFO - Build info: version: '4.43.0', revision: 'dd0f534'
+[2026-05-09T18:22:37.882+0000] {subprocess.py:93} INFO - System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.6.87.2-microsoft-standard-WSL2', java.version: '21.0.10'
+[2026-05-09T18:22:37.883+0000] {subprocess.py:93} INFO - Driver info: driver.version: unknown
+[2026-05-09T18:22:37.883+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.grid.sessionmap.local.LocalSessionMap.get(LocalSessionMap.java:139)
+[2026-05-09T18:22:37.885+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.grid.router.HandleSession.lambda$loadSessionId$0(HandleSession.java:274)
+[2026-05-09T18:22:37.886+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.grid.router.HandleSession.execute(HandleSession.java:230)
+[2026-05-09T18:22:37.886+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.http.Route$PredicatedRoute.handle(Route.java:398)
+[2026-05-09T18:22:37.887+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.http.Route.execute(Route.java:69)
+[2026-05-09T18:22:37.888+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.http.Route$CombinedRoute.handle(Route.java:361)
+[2026-05-09T18:22:37.890+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.http.Route.execute(Route.java:69)
+[2026-05-09T18:22:37.891+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.grid.router.Router.execute(Router.java:89)
+[2026-05-09T18:22:37.891+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.grid.web.EnsureSpecCompliantResponseHeaders.lambda$apply$0(EnsureSpecCompliantResponseHeaders.java:34)
+[2026-05-09T18:22:37.931+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.http.Filter$1.execute(Filter.java:63)
+[2026-05-09T18:22:37.936+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.http.Route$CombinedRoute.handle(Route.java:361)
+[2026-05-09T18:22:37.938+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.http.Route.execute(Route.java:69)
+[2026-05-09T18:22:37.939+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.http.Route$NestedRoute.handle(Route.java:271)
+[2026-05-09T18:22:37.939+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.http.Route.execute(Route.java:69)
+[2026-05-09T18:22:37.940+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.http.Route$CombinedRoute.handle(Route.java:361)
+[2026-05-09T18:22:37.940+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.http.Route.execute(Route.java:69)
+[2026-05-09T18:22:37.941+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.AddWebDriverSpecHeaders.lambda$apply$0(AddWebDriverSpecHeaders.java:35)
+[2026-05-09T18:22:37.941+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.ErrorFilter.lambda$apply$0(ErrorFilter.java:44)
+[2026-05-09T18:22:37.942+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.http.Filter$1.execute(Filter.java:63)
+[2026-05-09T18:22:37.943+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.ErrorFilter.lambda$apply$0(ErrorFilter.java:44)
+[2026-05-09T18:22:37.944+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.remote.http.Filter$1.execute(Filter.java:63)
+[2026-05-09T18:22:37.945+0000] {subprocess.py:93} INFO - 	at org.openqa.selenium.netty.server.SeleniumHandler.lambda$channelRead0$0(SeleniumHandler.java:49)
+[2026-05-09T18:22:37.946+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[2026-05-09T18:22:37.947+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[2026-05-09T18:22:37.949+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[2026-05-09T18:22:37.950+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[2026-05-09T18:22:37.951+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+[2026-05-09T18:22:37.952+0000] {subprocess.py:93} INFO - 
+[2026-05-09T18:22:38.972+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-05-09T18:22:38.990+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-09T18:22:39.177+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-05-09T18:22:39.241+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=weekly_data_pipeline, task_id=run_booking_scraper, run_id=manual__2026-05-09T18:12:13.898928+00:00, execution_date=20260509T181213, start_date=20260509T181217, end_date=20260509T182239
+[2026-05-09T18:22:39.372+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 39 for task run_booking_scraper (Bash command failed. The command returned a non-zero exit code 1.; 245)
+[2026-05-09T18:22:39.449+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-05-09T18:22:39.557+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,26 @@
+[2026-05-09T15:42:09.724+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-09T15:42:09.796+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weekly_data_pipeline.run_talabat_scraper manual__2026-05-09T15:41:41.877904+00:00 [queued]>
+[2026-05-09T15:42:09.827+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weekly_data_pipeline.run_talabat_scraper manual__2026-05-09T15:41:41.877904+00:00 [queued]>
+[2026-05-09T15:42:09.828+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-05-09T15:42:09.900+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_talabat_scraper> on 2026-05-09 15:41:41.877904+00:00
+[2026-05-09T15:42:09.926+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=306) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-05-09T15:42:09.931+0000] {standard_task_runner.py:63} INFO - Started process 310 to run task
+[2026-05-09T15:42:09.930+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weekly_data_pipeline', 'run_talabat_scraper', 'manual__2026-05-09T15:41:41.877904+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/weekly_pipeline.py', '--cfg-path', '/tmp/tmpnxwqickv']
+[2026-05-09T15:42:09.938+0000] {standard_task_runner.py:91} INFO - Job 24: Subtask run_talabat_scraper
+[2026-05-09T15:42:10.083+0000] {task_command.py:426} INFO - Running <TaskInstance: weekly_data_pipeline.run_talabat_scraper manual__2026-05-09T15:41:41.877904+00:00 [running]> on host 84265488cf33
+[2026-05-09T15:42:11.525+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='koka' AIRFLOW_CTX_DAG_ID='weekly_data_pipeline' AIRFLOW_CTX_TASK_ID='run_talabat_scraper' AIRFLOW_CTX_EXECUTION_DATE='2026-05-09T15:41:41.877904+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-09T15:41:41.877904+00:00'
+[2026-05-09T15:42:11.537+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-09T15:42:11.541+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-09T15:42:11.544+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/scripts/talabat_scraper.py']
+[2026-05-09T15:42:11.578+0000] {subprocess.py:86} INFO - Output:
+[2026-05-09T15:42:20.327+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2026-05-09T15:42:20.333+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-05-09T15:42:20.338+0000] {process_utils.py:132} INFO - Sending 15 to group 310. PIDs of all processes in the group: [312, 310]
+[2026-05-09T15:42:20.339+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 310
+[2026-05-09T15:42:20.340+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-05-09T15:42:20.341+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2026-05-09T15:42:20.343+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-09T15:42:20.433+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=310, status='terminated', exitcode=0, started='15:42:09') (310) terminated with exit code 0
+[2026-05-09T15:42:20.434+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=312, status='terminated', started='15:42:10') (312) terminated with exit code None

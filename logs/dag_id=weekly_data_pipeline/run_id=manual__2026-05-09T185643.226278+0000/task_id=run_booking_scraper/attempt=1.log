@@ -1,0 +1,384 @@
+[2026-05-09T18:56:48.653+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-09T18:56:48.736+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weekly_data_pipeline.run_booking_scraper manual__2026-05-09T18:56:43.226278+00:00 [queued]>
+[2026-05-09T18:56:48.760+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weekly_data_pipeline.run_booking_scraper manual__2026-05-09T18:56:43.226278+00:00 [queued]>
+[2026-05-09T18:56:48.761+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-05-09T18:56:48.799+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_booking_scraper> on 2026-05-09 18:56:43.226278+00:00
+[2026-05-09T18:56:48.832+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=166) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-05-09T18:56:48.837+0000] {standard_task_runner.py:63} INFO - Started process 170 to run task
+[2026-05-09T18:56:48.839+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weekly_data_pipeline', 'run_booking_scraper', 'manual__2026-05-09T18:56:43.226278+00:00', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/weekly_pipeline.py', '--cfg-path', '/tmp/tmpwo8jhrz1']
+[2026-05-09T18:56:48.842+0000] {standard_task_runner.py:91} INFO - Job 44: Subtask run_booking_scraper
+[2026-05-09T18:56:49.028+0000] {task_command.py:426} INFO - Running <TaskInstance: weekly_data_pipeline.run_booking_scraper manual__2026-05-09T18:56:43.226278+00:00 [running]> on host b1f1eeb5f7fc
+[2026-05-09T18:56:49.301+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='koka' AIRFLOW_CTX_DAG_ID='weekly_data_pipeline' AIRFLOW_CTX_TASK_ID='run_booking_scraper' AIRFLOW_CTX_EXECUTION_DATE='2026-05-09T18:56:43.226278+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-09T18:56:43.226278+00:00'
+[2026-05-09T18:56:49.307+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-09T18:56:49.349+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-09T18:56:49.353+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/scripts/booking_scraper.py']
+[2026-05-09T18:56:49.385+0000] {subprocess.py:86} INFO - Output:
+[2026-05-09T19:25:58.402+0000] {subprocess.py:93} INFO - 
+[2026-05-09T19:25:58.441+0000] {subprocess.py:93} INFO - ==================================================
+[2026-05-09T19:25:58.443+0000] {subprocess.py:93} INFO - 🏙️  Scraping: Alexandria
+[2026-05-09T19:25:58.445+0000] {subprocess.py:93} INFO - ==================================================
+[2026-05-09T19:25:58.448+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.454+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.456+0000] {subprocess.py:93} INFO - 🌍 Opening search: https://www.booking.com/searchresults.html?ss=Alexandria&checkin=2026-07-10&checkout=2026-07-15&group_adults=2&no_rooms=1&group_children=0&selected_currency=USD&lang=en-us&soz=1
+[2026-05-09T19:25:58.459+0000] {subprocess.py:93} INFO - 🏨 Loaded cards: 25
+[2026-05-09T19:25:58.461+0000] {subprocess.py:93} INFO - ✅ Reached target of 25 hotels.
+[2026-05-09T19:25:58.463+0000] {subprocess.py:93} INFO - 🔍 Found 25 hotel cards on current page
+[2026-05-09T19:25:58.465+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.466+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.468+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.473+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.475+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.477+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.478+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.479+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.482+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.483+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.485+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.485+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.486+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.487+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.488+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.489+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.490+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.491+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.492+0000] {subprocess.py:93} INFO - ⚠️  Session creation failed (attempt 1): Message: Could not start a new session. New session request timed out
+[2026-05-09T19:25:58.493+0000] {subprocess.py:93} INFO - Host info: host: '40d04ef5ec62', ip: '172.18.0.4'
+[2026-05-09T19:25:58.493+0000] {subprocess.py:93} INFO - Build info: version: '4.43.0', revision: 'dd0f534'
+[2026-05-09T19:25:58.494+0000] {subprocess.py:93} INFO - System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.6.87.2-microsoft-standard-WSL2', java.version: '21.0.10'
+[2026-05-09T19:25:58.495+0000] {subprocess.py:93} INFO - Driver info: driver.version: unknown; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+[2026-05-09T19:25:58.497+0000] {subprocess.py:93} INFO - Stacktrace:
+[2026-05-09T19:25:58.498+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.grid.sessionqueue.local.LocalNewSessionQueue.addToQueue (LocalNewSessionQueue.java:228)
+[2026-05-09T19:25:58.500+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.grid.sessionqueue.NewSessionQueue.lambda$new$1 (NewSessionQueue.java:68)
+[2026-05-09T19:25:58.501+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Route$TemplatizedRoute.handle (Route.java:192)
+[2026-05-09T19:25:58.502+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Route.execute (Route.java:69)
+[2026-05-09T19:25:58.502+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Route$CombinedRoute.handle (Route.java:361)
+[2026-05-09T19:25:58.503+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Route.execute (Route.java:69)
+[2026-05-09T19:25:58.504+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.grid.sessionqueue.NewSessionQueue.execute (NewSessionQueue.java:128)
+[2026-05-09T19:25:58.504+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.tracing.SpanWrappedHttpHandler.execute (SpanWrappedHttpHandler.java:87)
+[2026-05-09T19:25:58.505+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Filter$1.execute (Filter.java:63)
+[2026-05-09T19:25:58.507+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Route$CombinedRoute.handle (Route.java:361)
+[2026-05-09T19:25:58.508+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Route.execute (Route.java:69)
+[2026-05-09T19:25:58.509+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.grid.router.Router.execute (Router.java:89)
+[2026-05-09T19:25:58.510+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.grid.web.EnsureSpecCompliantResponseHeaders.lambda$apply$0 (EnsureSpecCompliantResponseHeaders.java:34)
+[2026-05-09T19:25:58.510+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Filter$1.execute (Filter.java:63)
+[2026-05-09T19:25:58.511+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Route$CombinedRoute.handle (Route.java:361)
+[2026-05-09T19:25:58.512+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Route.execute (Route.java:69)
+[2026-05-09T19:25:58.514+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Route$NestedRoute.handle (Route.java:271)
+[2026-05-09T19:25:58.517+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Route.execute (Route.java:69)
+[2026-05-09T19:25:58.518+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Route$CombinedRoute.handle (Route.java:361)
+[2026-05-09T19:25:58.518+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Route.execute (Route.java:69)
+[2026-05-09T19:25:58.519+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.AddWebDriverSpecHeaders.lambda$apply$0 (AddWebDriverSpecHeaders.java:35)
+[2026-05-09T19:25:58.520+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.ErrorFilter.lambda$apply$0 (ErrorFilter.java:44)
+[2026-05-09T19:25:58.521+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Filter$1.execute (Filter.java:63)
+[2026-05-09T19:25:58.522+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.ErrorFilter.lambda$apply$0 (ErrorFilter.java:44)
+[2026-05-09T19:25:58.522+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.remote.http.Filter$1.execute (Filter.java:63)
+[2026-05-09T19:25:58.523+0000] {subprocess.py:93} INFO -     at org.openqa.selenium.netty.server.SeleniumHandler.lambda$channelRead0$0 (SeleniumHandler.java:49)
+[2026-05-09T19:25:58.524+0000] {subprocess.py:93} INFO -     at java.util.concurrent.Executors$RunnableAdapter.call (Executors.java:572)
+[2026-05-09T19:25:58.525+0000] {subprocess.py:93} INFO -     at java.util.concurrent.FutureTask.run (FutureTask.java:317)
+[2026-05-09T19:25:58.526+0000] {subprocess.py:93} INFO -     at java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1144)
+[2026-05-09T19:25:58.527+0000] {subprocess.py:93} INFO -     at java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:642)
+[2026-05-09T19:25:58.528+0000] {subprocess.py:93} INFO -     at java.lang.Thread.run (Thread.java:1583)
+[2026-05-09T19:25:58.529+0000] {subprocess.py:93} INFO -    Retrying in 15s...
+[2026-05-09T19:25:58.530+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.531+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.531+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 2/5)...
+[2026-05-09T19:25:58.532+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.532+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.533+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.533+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.534+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.534+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.535+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.535+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.536+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.537+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.538+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.539+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.540+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.540+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.541+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.541+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.542+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.542+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.542+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.543+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.543+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.544+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.544+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.545+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.545+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.545+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.546+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.546+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.547+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.548+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.548+0000] {subprocess.py:93} INFO - 
+[2026-05-09T19:25:58.549+0000] {subprocess.py:93} INFO - 💾 Saved 25 hotels   → Alexandria_2026-05-09_booking.csv
+[2026-05-09T19:25:58.549+0000] {subprocess.py:93} INFO - 💾 Saved 186 room rows → Alexandria_2026-05-09_booking_rooms.csv
+[2026-05-09T19:25:58.550+0000] {subprocess.py:93} INFO -                       Hotel Name  Price  ...  Longitude Distance (km)
+[2026-05-09T19:25:58.551+0000] {subprocess.py:93} INFO - 0         Tolip Hotel Alexandria    413  ...  29.946027        180.59
+[2026-05-09T19:25:58.551+0000] {subprocess.py:93} INFO - 1                  Alexandria Ap    164  ...  29.956584        180.61
+[2026-05-09T19:25:58.552+0000] {subprocess.py:93} INFO - 2        Hayah Waterfalls Hotels    118  ...  29.928120        180.76
+[2026-05-09T19:25:58.552+0000] {subprocess.py:93} INFO - 3       Rixos Montaza Alexandria    779  ...  30.015993        180.78
+[2026-05-09T19:25:58.553+0000] {subprocess.py:93} INFO - 4  Hilton Alexandria Green Plaza    395  ...  29.965575        177.28
+[2026-05-09T19:25:58.555+0000] {subprocess.py:93} INFO - 
+[2026-05-09T19:25:58.556+0000] {subprocess.py:93} INFO - [5 rows x 8 columns]
+[2026-05-09T19:25:58.556+0000] {subprocess.py:93} INFO - 
+[2026-05-09T19:25:58.557+0000] {subprocess.py:93} INFO - --- Rooms preview ---
+[2026-05-09T19:25:58.557+0000] {subprocess.py:93} INFO -       Hotel Name  ...                                       Your choices
+[2026-05-09T19:25:58.558+0000] {subprocess.py:93} INFO - 0  Alexandria Ap  ...  Free cancellation before 6:00 PM on July 10, 2...
+[2026-05-09T19:25:58.558+0000] {subprocess.py:93} INFO - 1  Alexandria Ap  ...  Free cancellation before 6:00 PM on July 10, 2...
+[2026-05-09T19:25:58.559+0000] {subprocess.py:93} INFO - 2  Alexandria Ap  ...  Free cancellation before 6:00 PM on July 10, 2...
+[2026-05-09T19:25:58.559+0000] {subprocess.py:93} INFO - 3  Alexandria Ap  ...  Free cancellation before 6:00 PM on July 10, 2...
+[2026-05-09T19:25:58.560+0000] {subprocess.py:93} INFO - 4  Alexandria Ap  ...  Free cancellation before 6:00 PM on July 10, 2...
+[2026-05-09T19:25:58.560+0000] {subprocess.py:93} INFO - 
+[2026-05-09T19:25:58.561+0000] {subprocess.py:93} INFO - [5 rows x 6 columns]
+[2026-05-09T19:25:58.561+0000] {subprocess.py:93} INFO - 
+[2026-05-09T19:25:58.562+0000] {subprocess.py:93} INFO - ==================================================
+[2026-05-09T19:25:58.562+0000] {subprocess.py:93} INFO - 🏙️  Scraping: Cairo
+[2026-05-09T19:25:58.563+0000] {subprocess.py:93} INFO - ==================================================
+[2026-05-09T19:25:58.563+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.564+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.565+0000] {subprocess.py:93} INFO - 🌍 Opening search: https://www.booking.com/searchresults.html?ss=Cairo&checkin=2026-07-10&checkout=2026-07-15&group_adults=2&no_rooms=1&group_children=0&selected_currency=USD&lang=en-us&soz=1
+[2026-05-09T19:25:58.566+0000] {subprocess.py:93} INFO - 🏨 Loaded cards: 25
+[2026-05-09T19:25:58.566+0000] {subprocess.py:93} INFO - ✅ Reached target of 25 hotels.
+[2026-05-09T19:25:58.567+0000] {subprocess.py:93} INFO - 🔍 Found 25 hotel cards on current page
+[2026-05-09T19:25:58.567+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.568+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.568+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.569+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.569+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.570+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.571+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.572+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.573+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.573+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.574+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.574+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.575+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.575+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.575+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.576+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.576+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.577+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.577+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T19:25:58.578+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T19:25:58.578+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.663+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.706+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.708+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.709+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.711+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.711+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.712+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.713+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.713+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.714+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.714+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.715+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.716+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.716+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.717+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.718+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.718+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.719+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.719+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.720+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.721+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.721+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.722+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.722+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.723+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.724+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.724+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.725+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.726+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.726+0000] {subprocess.py:93} INFO - 
+[2026-05-09T21:02:00.727+0000] {subprocess.py:93} INFO - 💾 Saved 25 hotels   → Cairo_2026-05-09_booking.csv
+[2026-05-09T21:02:00.729+0000] {subprocess.py:93} INFO - 💾 Saved 200 room rows → Cairo_2026-05-09_booking_rooms.csv
+[2026-05-09T21:02:00.730+0000] {subprocess.py:93} INFO -                      Hotel Name Price  ...  Longitude Distance (km)
+[2026-05-09T21:02:00.730+0000] {subprocess.py:93} INFO - 0         Regant pyramids hotel    97  ...  31.146274         11.32
+[2026-05-09T21:02:00.731+0000] {subprocess.py:93} INFO - 1       Hilton Cairo Grand Nile   510  ...  31.227007          1.44
+[2026-05-09T21:02:00.731+0000] {subprocess.py:93} INFO - 2  Ramses Hilton Hotel & Casino   N/A  ...  31.232007          0.73
+[2026-05-09T21:02:00.732+0000] {subprocess.py:93} INFO - 3                                 N/A  ...  31.143743         11.54
+[2026-05-09T21:02:00.732+0000] {subprocess.py:93} INFO - 4                                 N/A  ...  31.144706         11.48
+[2026-05-09T21:02:00.733+0000] {subprocess.py:93} INFO - 
+[2026-05-09T21:02:00.734+0000] {subprocess.py:93} INFO - [5 rows x 8 columns]
+[2026-05-09T21:02:00.734+0000] {subprocess.py:93} INFO - 
+[2026-05-09T21:02:00.735+0000] {subprocess.py:93} INFO - --- Rooms preview ---
+[2026-05-09T21:02:00.735+0000] {subprocess.py:93} INFO -                      Hotel Name  ... Your choices
+[2026-05-09T21:02:00.736+0000] {subprocess.py:93} INFO - 0  Ramses Hilton Hotel & Casino  ...          N/A
+[2026-05-09T21:02:00.736+0000] {subprocess.py:93} INFO - 1  Ramses Hilton Hotel & Casino  ...          N/A
+[2026-05-09T21:02:00.737+0000] {subprocess.py:93} INFO - 2  Ramses Hilton Hotel & Casino  ...          N/A
+[2026-05-09T21:02:00.737+0000] {subprocess.py:93} INFO - 3  Ramses Hilton Hotel & Casino  ...          N/A
+[2026-05-09T21:02:00.738+0000] {subprocess.py:93} INFO - 4  Ramses Hilton Hotel & Casino  ...          N/A
+[2026-05-09T21:02:00.739+0000] {subprocess.py:93} INFO - 
+[2026-05-09T21:02:00.740+0000] {subprocess.py:93} INFO - [5 rows x 6 columns]
+[2026-05-09T21:02:00.741+0000] {subprocess.py:93} INFO - 
+[2026-05-09T21:02:00.745+0000] {subprocess.py:93} INFO - ==================================================
+[2026-05-09T21:02:00.746+0000] {subprocess.py:93} INFO - 🏙️  Scraping: Luxor
+[2026-05-09T21:02:00.747+0000] {subprocess.py:93} INFO - ==================================================
+[2026-05-09T21:02:00.747+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.748+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.749+0000] {subprocess.py:93} INFO - 🌍 Opening search: https://www.booking.com/searchresults.html?ss=Luxor&checkin=2026-07-10&checkout=2026-07-15&group_adults=2&no_rooms=1&group_children=0&selected_currency=USD&lang=en-us&soz=1
+[2026-05-09T21:02:00.751+0000] {subprocess.py:93} INFO - 🏨 Loaded cards: 25
+[2026-05-09T21:02:00.752+0000] {subprocess.py:93} INFO - ✅ Reached target of 25 hotels.
+[2026-05-09T21:02:00.753+0000] {subprocess.py:93} INFO - 🔍 Found 25 hotel cards on current page
+[2026-05-09T21:02:00.754+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.754+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.755+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.756+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.757+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.758+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.758+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.760+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.760+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.762+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.762+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.763+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.763+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.764+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.765+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.765+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.765+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.766+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.767+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.767+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.768+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.768+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.769+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.769+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.770+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.770+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.771+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.771+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.772+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.772+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.773+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.774+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.774+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.775+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.776+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.776+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.777+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.778+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.779+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.779+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.780+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.780+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.781+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.781+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.782+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.782+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.783+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.783+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.784+0000] {subprocess.py:93} INFO - 
+[2026-05-09T21:02:00.784+0000] {subprocess.py:93} INFO - 💾 Saved 25 hotels   → Luxor_2026-05-09_booking.csv
+[2026-05-09T21:02:00.785+0000] {subprocess.py:93} INFO - 💾 Saved 157 room rows → Luxor_2026-05-09_booking_rooms.csv
+[2026-05-09T21:02:00.790+0000] {subprocess.py:93} INFO -                                    Hotel Name Price  ...  Longitude Distance (km)
+[2026-05-09T21:02:00.790+0000] {subprocess.py:93} INFO - 0                       Nefertiti Hotel Luxor   190  ...  32.641967        500.79
+[2026-05-09T21:02:00.791+0000] {subprocess.py:93} INFO - 1                                         N/A   N/A  ...        NaN           N/A
+[2026-05-09T21:02:00.792+0000] {subprocess.py:93} INFO - 2  Jolie Ville Hotel & Spa Kings Island Luxor   N/A  ...  32.622984        503.81
+[2026-05-09T21:02:00.793+0000] {subprocess.py:93} INFO - 3                                               N/A  ...  32.629865        502.01
+[2026-05-09T21:02:00.794+0000] {subprocess.py:93} INFO - 4                                               N/A  ...  32.655730        498.12
+[2026-05-09T21:02:00.795+0000] {subprocess.py:93} INFO - 
+[2026-05-09T21:02:00.795+0000] {subprocess.py:93} INFO - [5 rows x 8 columns]
+[2026-05-09T21:02:00.796+0000] {subprocess.py:93} INFO - 
+[2026-05-09T21:02:00.796+0000] {subprocess.py:93} INFO - --- Rooms preview ---
+[2026-05-09T21:02:00.797+0000] {subprocess.py:93} INFO -               Hotel Name  ... Your choices
+[2026-05-09T21:02:00.798+0000] {subprocess.py:93} INFO - 0  Nefertiti Hotel Luxor  ...          N/A
+[2026-05-09T21:02:00.798+0000] {subprocess.py:93} INFO - 1  Nefertiti Hotel Luxor  ...          N/A
+[2026-05-09T21:02:00.799+0000] {subprocess.py:93} INFO - 2  Nefertiti Hotel Luxor  ...          N/A
+[2026-05-09T21:02:00.799+0000] {subprocess.py:93} INFO - 3  Nefertiti Hotel Luxor  ...          N/A
+[2026-05-09T21:02:00.800+0000] {subprocess.py:93} INFO - 4  Nefertiti Hotel Luxor  ...          N/A
+[2026-05-09T21:02:00.800+0000] {subprocess.py:93} INFO - 
+[2026-05-09T21:02:00.801+0000] {subprocess.py:93} INFO - [5 rows x 6 columns]
+[2026-05-09T21:02:00.801+0000] {subprocess.py:93} INFO - 
+[2026-05-09T21:02:00.802+0000] {subprocess.py:93} INFO - ==================================================
+[2026-05-09T21:02:00.802+0000] {subprocess.py:93} INFO - 🏙️  Scraping: Sharm El Sheikh
+[2026-05-09T21:02:00.803+0000] {subprocess.py:93} INFO - ==================================================
+[2026-05-09T21:02:00.804+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.804+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.806+0000] {subprocess.py:93} INFO - 🌍 Opening search: https://www.booking.com/searchresults.html?ss=Sharm+El+Sheikh&checkin=2026-07-10&checkout=2026-07-15&group_adults=2&no_rooms=1&group_children=0&selected_currency=USD&lang=en-us&soz=1
+[2026-05-09T21:02:00.807+0000] {subprocess.py:93} INFO - 🏨 Loaded cards: 25
+[2026-05-09T21:02:00.807+0000] {subprocess.py:93} INFO - ✅ Reached target of 25 hotels.
+[2026-05-09T21:02:00.808+0000] {subprocess.py:93} INFO - 🔍 Found 25 hotel cards on current page
+[2026-05-09T21:02:00.809+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.810+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.810+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.811+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.812+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.812+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.813+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.813+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.814+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.814+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.815+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.815+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.816+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.816+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.817+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.817+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.818+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.819+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.819+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.820+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.821+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.822+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.823+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.824+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.825+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.826+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.827+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.827+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.828+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.829+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.829+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.831+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.831+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.832+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.832+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.833+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.833+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.834+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.834+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.835+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.835+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.839+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.840+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.841+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.841+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.842+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.843+0000] {subprocess.py:93} INFO - 🔌 Connecting to Selenium Grid (attempt 1/5)...
+[2026-05-09T21:02:00.845+0000] {subprocess.py:93} INFO - ✅ Connected to Selenium Grid.
+[2026-05-09T21:02:00.845+0000] {subprocess.py:93} INFO - 
+[2026-05-09T21:02:00.846+0000] {subprocess.py:93} INFO - 💾 Saved 25 hotels   → Sharm El Sheikh_2026-05-09_booking.csv
+[2026-05-09T21:02:00.847+0000] {subprocess.py:93} INFO - 💾 Saved 234 room rows → Sharm El Sheikh_2026-05-09_booking_rooms.csv
+[2026-05-09T21:02:00.848+0000] {subprocess.py:93} INFO -                                        Hotel Name  ... Distance (km)
+[2026-05-09T21:02:00.852+0000] {subprocess.py:93} INFO - 0                   Hotel Novotel Sharm El-Sheikh  ...        382.92
+[2026-05-09T21:02:00.852+0000] {subprocess.py:93} INFO - 1  DoubleTree by Hilton Sharm El Sheikh Sharm Bay  ...        384.83
+[2026-05-09T21:02:00.853+0000] {subprocess.py:93} INFO - 2                                   JAZ Belvedere  ...        385.52
+[2026-05-09T21:02:00.854+0000] {subprocess.py:93} INFO - 3    Amphoras Blu Ultra-All Inclusive Adults Only  ...        385.33
+[2026-05-09T21:02:00.855+0000] {subprocess.py:93} INFO - 4                  Continental Plaza Beach Resort  ...        384.65
+[2026-05-09T21:02:00.855+0000] {subprocess.py:93} INFO - 
+[2026-05-09T21:02:00.856+0000] {subprocess.py:93} INFO - [5 rows x 8 columns]
+[2026-05-09T21:02:00.857+0000] {subprocess.py:93} INFO - 
+[2026-05-09T21:02:00.858+0000] {subprocess.py:93} INFO - --- Rooms preview ---
+[2026-05-09T21:02:00.860+0000] {subprocess.py:93} INFO -       Hotel Name  ...                                       Your choices
+[2026-05-09T21:02:00.863+0000] {subprocess.py:93} INFO - 0  JAZ Belvedere  ...  All-Inclusive Free cancellation before June 26...
+[2026-05-09T21:02:00.864+0000] {subprocess.py:93} INFO - 1  JAZ Belvedere  ...  All-Inclusive Includes 1 parking spot Free can...
+[2026-05-09T21:02:00.865+0000] {subprocess.py:93} INFO - 2  JAZ Belvedere  ...  All-Inclusive Includes 1 parking spot Free can...
+[2026-05-09T21:02:00.865+0000] {subprocess.py:93} INFO - 3  JAZ Belvedere  ...  All-Inclusive Includes 1 parking spot Free can...
+[2026-05-09T21:02:00.866+0000] {subprocess.py:93} INFO - 4  JAZ Belvedere  ...  All-Inclusive Includes 1 parking spot Free can...
+[2026-05-09T21:02:00.866+0000] {subprocess.py:93} INFO - 
+[2026-05-09T21:02:00.867+0000] {subprocess.py:93} INFO - [5 rows x 6 columns]
+[2026-05-09T21:02:00.868+0000] {subprocess.py:93} INFO - 
+[2026-05-09T21:02:00.869+0000] {subprocess.py:93} INFO - ✅ Booking scraping complete.
+[2026-05-09T21:02:03.306+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-05-09T21:02:03.353+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-09T21:02:04.364+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=weekly_data_pipeline, task_id=run_booking_scraper, run_id=manual__2026-05-09T18:56:43.226278+00:00, execution_date=20260509T185643, start_date=20260509T185648, end_date=20260509T210204
+[2026-05-09T21:02:04.699+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-05-09T21:02:05.070+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-05-09T21:02:05.075+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

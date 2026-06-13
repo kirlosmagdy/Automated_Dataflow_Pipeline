@@ -1,0 +1,285 @@
+[2026-05-09T23:40:39.048+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-09T23:40:39.153+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weekly_data_pipeline.run_talabat_scraper manual__2026-05-09T23:40:35.039580+00:00 [queued]>
+[2026-05-09T23:40:39.176+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weekly_data_pipeline.run_talabat_scraper manual__2026-05-09T23:40:35.039580+00:00 [queued]>
+[2026-05-09T23:40:39.177+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-05-09T23:40:39.426+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_talabat_scraper> on 2026-05-09 23:40:35.039580+00:00
+[2026-05-09T23:40:39.482+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=2391) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-05-09T23:40:39.488+0000] {standard_task_runner.py:63} INFO - Started process 2394 to run task
+[2026-05-09T23:40:39.476+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weekly_data_pipeline', 'run_talabat_scraper', 'manual__2026-05-09T23:40:35.039580+00:00', '--job-id', '49', '--raw', '--subdir', 'DAGS_FOLDER/weekly_pipeline.py', '--cfg-path', '/tmp/tmpjjr3pjgu']
+[2026-05-09T23:40:39.491+0000] {standard_task_runner.py:91} INFO - Job 49: Subtask run_talabat_scraper
+[2026-05-09T23:40:39.713+0000] {task_command.py:426} INFO - Running <TaskInstance: weekly_data_pipeline.run_talabat_scraper manual__2026-05-09T23:40:35.039580+00:00 [running]> on host b1f1eeb5f7fc
+[2026-05-09T23:40:39.923+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='koka' AIRFLOW_CTX_DAG_ID='weekly_data_pipeline' AIRFLOW_CTX_TASK_ID='run_talabat_scraper' AIRFLOW_CTX_EXECUTION_DATE='2026-05-09T23:40:35.039580+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-09T23:40:35.039580+00:00'
+[2026-05-09T23:40:39.924+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-09T23:40:40.004+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-09T23:40:40.007+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/scripts/talabat_scraper.py']
+[2026-05-09T23:40:40.034+0000] {subprocess.py:86} INFO - Output:
+[2026-05-09T23:50:46.169+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.222+0000] {subprocess.py:93} INFO - ==================================================
+[2026-05-09T23:50:46.224+0000] {subprocess.py:93} INFO - 🍽️  Scraping Talabat: CAIRO
+[2026-05-09T23:50:46.228+0000] {subprocess.py:93} INFO - ==================================================
+[2026-05-09T23:50:46.231+0000] {subprocess.py:93} INFO -   📄 Scraping page 1...
+[2026-05-09T23:50:46.233+0000] {subprocess.py:93} INFO -      Found 15 restaurants on page 1
+[2026-05-09T23:50:46.236+0000] {subprocess.py:93} INFO -   📄 Scraping page 2...
+[2026-05-09T23:50:46.238+0000] {subprocess.py:93} INFO -      Found 15 restaurants on page 2
+[2026-05-09T23:50:46.241+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.243+0000] {subprocess.py:93} INFO - ✅ Total unique restaurants found: 29
+[2026-05-09T23:50:46.245+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.248+0000] {subprocess.py:93} INFO -   🔍 [1/29] https://www.talabat.com/egypt/restaurant/792059/the-good-mafia-al-manial?aid=7766
+[2026-05-09T23:50:46.249+0000] {subprocess.py:93} INFO -      Found 59 menu items
+[2026-05-09T23:50:46.251+0000] {subprocess.py:93} INFO -      ✔ The Good Mafia | 59 items
+[2026-05-09T23:50:46.254+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.256+0000] {subprocess.py:93} INFO -   🔍 [2/29] https://www.talabat.com/egypt/restaurant/794520/the-joker-dokki--oman-square?aid=7766
+[2026-05-09T23:50:46.260+0000] {subprocess.py:93} INFO -      Found 75 menu items
+[2026-05-09T23:50:46.263+0000] {subprocess.py:93} INFO -      ✔ The Joker | 75 items
+[2026-05-09T23:50:46.266+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.268+0000] {subprocess.py:93} INFO -   🔍 [3/29] https://www.talabat.com/egypt/restaurant/518125/starbucks-nile-city-boat--zamalek--cairo-tower?aid=7766
+[2026-05-09T23:50:46.270+0000] {subprocess.py:93} INFO -      Found 125 menu items
+[2026-05-09T23:50:46.273+0000] {subprocess.py:93} INFO -      ✔ Starbucks | 125 items
+[2026-05-09T23:50:46.274+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.275+0000] {subprocess.py:93} INFO -   🔍 [4/29] https://www.talabat.com/egypt/restaurant/507781/burger-king-al-manial?aid=7766
+[2026-05-09T23:50:46.277+0000] {subprocess.py:93} INFO -      Found 83 menu items
+[2026-05-09T23:50:46.280+0000] {subprocess.py:93} INFO -      ✔ Burger King | 83 items
+[2026-05-09T23:50:46.282+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.283+0000] {subprocess.py:93} INFO -   🔍 [5/29] https://www.talabat.com/egypt/restaurant/687308/city-drink-agouza?aid=7766
+[2026-05-09T23:50:46.285+0000] {subprocess.py:93} INFO -      Found 235 menu items
+[2026-05-09T23:50:46.286+0000] {subprocess.py:93} INFO -      ✔ City Drink | 235 items
+[2026-05-09T23:50:46.288+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.291+0000] {subprocess.py:93} INFO -   🔍 [6/29] https://www.talabat.com/egypt/restaurant/510616/cook-door-al-manial--tgo?aid=7766
+[2026-05-09T23:50:46.292+0000] {subprocess.py:93} INFO -      Found 73 menu items
+[2026-05-09T23:50:46.293+0000] {subprocess.py:93} INFO -      ✔ Cook Door | 73 items
+[2026-05-09T23:50:46.295+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.295+0000] {subprocess.py:93} INFO -   🔍 [7/29] https://www.talabat.com/egypt/restaurant/508082/recota-al-manial?aid=7766
+[2026-05-09T23:50:46.297+0000] {subprocess.py:93} INFO -      Found 80 menu items
+[2026-05-09T23:50:46.298+0000] {subprocess.py:93} INFO -      ✔ Recota | 80 items
+[2026-05-09T23:50:46.299+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.301+0000] {subprocess.py:93} INFO -   🔍 [8/29] https://www.talabat.com/egypt/restaurant/513565/fruit-farghaly-downtown--tahrir?aid=7766
+[2026-05-09T23:50:46.303+0000] {subprocess.py:93} INFO -      Found 187 menu items
+[2026-05-09T23:50:46.306+0000] {subprocess.py:93} INFO -      ✔ Fruit Farghaly | 187 items
+[2026-05-09T23:50:46.307+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.308+0000] {subprocess.py:93} INFO -   🔍 [9/29] https://www.talabat.com/egypt/restaurant/796244/hamed-el-eskndrany-shobra--masara--tmp?aid=7766
+[2026-05-09T23:50:46.309+0000] {subprocess.py:93} INFO -      Found 239 menu items
+[2026-05-09T23:50:46.310+0000] {subprocess.py:93} INFO -      ✔ Hamed El Eskndrany | 239 items
+[2026-05-09T23:50:46.311+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.312+0000] {subprocess.py:93} INFO -   🔍 [10/29] https://www.talabat.com/egypt/restaurant/513366/mr-lee-zamalek?aid=7766
+[2026-05-09T23:50:46.313+0000] {subprocess.py:93} INFO -      Found 101 menu items
+[2026-05-09T23:50:46.313+0000] {subprocess.py:93} INFO -      ✔ Mr. Lee | 101 items
+[2026-05-09T23:50:46.314+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.315+0000] {subprocess.py:93} INFO -   🔍 [11/29] https://www.talabat.com/egypt/restaurant/774751/tikos-fried-chicken-and-more-shobra--masara?aid=7766
+[2026-05-09T23:50:46.316+0000] {subprocess.py:93} INFO -      Found 115 menu items
+[2026-05-09T23:50:46.317+0000] {subprocess.py:93} INFO -      ✔ Tiko's Fried Chicken and More | 115 items
+[2026-05-09T23:50:46.319+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.319+0000] {subprocess.py:93} INFO -   🔍 [12/29] https://www.talabat.com/egypt/grocery/619850/talabat-martdowntown--el-sayeda-zeinab?aid=7766
+[2026-05-09T23:50:46.322+0000] {subprocess.py:93} INFO -      Found 0 menu items
+[2026-05-09T23:50:46.324+0000] {subprocess.py:93} INFO -      ✔ talabat martinDowntown - Magra El Ouyon,Egypt | 0 items
+[2026-05-09T23:50:46.325+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.326+0000] {subprocess.py:93} INFO -   🔍 [13/29] https://www.talabat.com/egypt/restaurant/789498/burger-station-giza--el-omraneya-el-sharkiya-1?aid=7766
+[2026-05-09T23:50:46.327+0000] {subprocess.py:93} INFO -      Found 25 menu items
+[2026-05-09T23:50:46.328+0000] {subprocess.py:93} INFO -      ✔ Burger Station | 25 items
+[2026-05-09T23:50:46.329+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.330+0000] {subprocess.py:93} INFO -   🔍 [14/29] https://www.talabat.com/egypt/restaurant/755466/original-al-manial?aid=7766
+[2026-05-09T23:50:46.332+0000] {subprocess.py:93} INFO -      Found 150 menu items
+[2026-05-09T23:50:46.334+0000] {subprocess.py:93} INFO -      ✔ Original | 150 items
+[2026-05-09T23:50:46.335+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.336+0000] {subprocess.py:93} INFO -   🔍 [15/29] https://www.talabat.com/egypt/restaurant/788686/candy-rush-dokki--oman-square?aid=7766
+[2026-05-09T23:50:46.338+0000] {subprocess.py:93} INFO -      Found 50 menu items
+[2026-05-09T23:50:46.340+0000] {subprocess.py:93} INFO -      ✔ Candy Rush | 50 items
+[2026-05-09T23:50:46.341+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.342+0000] {subprocess.py:93} INFO -   🔍 [16/29] https://www.talabat.com/egypt/restaurant/502351/momen--al-manial?aid=7766
+[2026-05-09T23:50:46.343+0000] {subprocess.py:93} INFO -      Found 115 menu items
+[2026-05-09T23:50:46.343+0000] {subprocess.py:93} INFO -      ✔ Mo'men | 115 items
+[2026-05-09T23:50:46.344+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.345+0000] {subprocess.py:93} INFO -   🔍 [17/29] https://www.talabat.com/egypt/restaurant/518625/pizza-master-downtown--magales-el-shaab?aid=7766
+[2026-05-09T23:50:46.345+0000] {subprocess.py:93} INFO -      Found 65 menu items
+[2026-05-09T23:50:46.348+0000] {subprocess.py:93} INFO -      ✔ Pizza Master | 65 items
+[2026-05-09T23:50:46.348+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.349+0000] {subprocess.py:93} INFO -   🔍 [18/29] https://www.talabat.com/egypt/restaurant/658817/kfc-manial-kfc--tmp?aid=7766
+[2026-05-09T23:50:46.351+0000] {subprocess.py:93} INFO -      Found 117 menu items
+[2026-05-09T23:50:46.351+0000] {subprocess.py:93} INFO -      ✔ KFC | 117 items
+[2026-05-09T23:50:46.352+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.355+0000] {subprocess.py:93} INFO -   🔍 [19/29] https://www.talabat.com/egypt/restaurant/632410/pizza-w-7alawani-al-salam-masr-al-kadema-misr-el-kadema?aid=7766
+[2026-05-09T23:50:46.356+0000] {subprocess.py:93} INFO -      Found 184 menu items
+[2026-05-09T23:50:46.357+0000] {subprocess.py:93} INFO -      ✔ Pizza W 7alawani Al Salam Masr Al Kadema | 184 items
+[2026-05-09T23:50:46.357+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.358+0000] {subprocess.py:93} INFO -   🔍 [20/29] https://www.talabat.com/egypt/restaurant/714356/gad-el-sayeda-zeinab?aid=7766
+[2026-05-09T23:50:46.359+0000] {subprocess.py:93} INFO -      Found 155 menu items
+[2026-05-09T23:50:46.359+0000] {subprocess.py:93} INFO -      ✔ GAD | 155 items
+[2026-05-09T23:50:46.360+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.361+0000] {subprocess.py:93} INFO -   🔍 [21/29] https://www.talabat.com/egypt/restaurant/502838/pizza-king--al-manial?aid=7766
+[2026-05-09T23:50:46.363+0000] {subprocess.py:93} INFO -      Found 155 menu items
+[2026-05-09T23:50:46.364+0000] {subprocess.py:93} INFO -      ✔ Pizza King | 155 items
+[2026-05-09T23:50:46.365+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.366+0000] {subprocess.py:93} INFO -   🔍 [22/29] https://www.talabat.com/egypt/restaurant/510270/amir-el-domiaty-giza?aid=7766
+[2026-05-09T23:50:46.368+0000] {subprocess.py:93} INFO -      Found 236 menu items
+[2026-05-09T23:50:46.369+0000] {subprocess.py:93} INFO -      ✔ Amir El Domiaty | 236 items
+[2026-05-09T23:50:46.371+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.372+0000] {subprocess.py:93} INFO -   🔍 [23/29] https://www.talabat.com/egypt/restaurant/685459/awlad-ali-pizza-shobra--rod-el-farg?aid=7766
+[2026-05-09T23:50:46.373+0000] {subprocess.py:93} INFO -      Found 189 menu items
+[2026-05-09T23:50:46.374+0000] {subprocess.py:93} INFO -      ✔ Awlad Ali | 189 items
+[2026-05-09T23:50:46.375+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.376+0000] {subprocess.py:93} INFO -   🔍 [24/29] https://www.talabat.com/egypt/restaurant/608917/bears-beans-al-manial?aid=7766
+[2026-05-09T23:50:46.377+0000] {subprocess.py:93} INFO -      Found 130 menu items
+[2026-05-09T23:50:46.377+0000] {subprocess.py:93} INFO -      ✔ Bear`s Beans | 130 items
+[2026-05-09T23:50:46.379+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.379+0000] {subprocess.py:93} INFO -   🔍 [25/29] https://www.talabat.com/egypt/pharmacy/752290/farouk-pharmacies-dokki--mohy-el-din-abou-el-ezz?aid=7766
+[2026-05-09T23:50:46.380+0000] {subprocess.py:93} INFO -      Found 0 menu items
+[2026-05-09T23:50:46.381+0000] {subprocess.py:93} INFO -      ✔ Farouk PharmaciesinDowntown - Magra El Ouyon,Egypt | 0 items
+[2026-05-09T23:50:46.383+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.384+0000] {subprocess.py:93} INFO -   🔍 [26/29] https://www.talabat.com/egypt/restaurant/517295/makarona-redadowntown--tahrir?aid=7766
+[2026-05-09T23:50:46.385+0000] {subprocess.py:93} INFO -      Found 47 menu items
+[2026-05-09T23:50:46.386+0000] {subprocess.py:93} INFO -      ✔ Makarona Reda | 47 items
+[2026-05-09T23:50:46.388+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.389+0000] {subprocess.py:93} INFO -   🔍 [27/29] https://www.talabat.com/egypt/restaurant/502267/wafflicious--dokki--tmp?aid=7766
+[2026-05-09T23:50:46.390+0000] {subprocess.py:93} INFO -      Found 111 menu items
+[2026-05-09T23:50:46.391+0000] {subprocess.py:93} INFO -      ✔ WAFFLICIOUS | 111 items
+[2026-05-09T23:50:46.392+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.392+0000] {subprocess.py:93} INFO -   🔍 [28/29] https://www.talabat.com/egypt/restaurant/502884/papa-johns-pizza--el-mesaha?aid=7766
+[2026-05-09T23:50:46.393+0000] {subprocess.py:93} INFO -      Found 74 menu items
+[2026-05-09T23:50:46.394+0000] {subprocess.py:93} INFO -      ✔ Papa John's Pizza | 74 items
+[2026-05-09T23:50:46.395+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.397+0000] {subprocess.py:93} INFO -   🔍 [29/29] https://www.talabat.com/egypt/restaurant/700435/buffalo-burger-al-manial--tgo?aid=7766
+[2026-05-09T23:50:46.399+0000] {subprocess.py:93} INFO -      Found 84 menu items
+[2026-05-09T23:50:46.400+0000] {subprocess.py:93} INFO -      ✔ Buffalo Burger | 84 items
+[2026-05-09T23:50:46.400+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.401+0000] {subprocess.py:93} INFO - 💾 Saved 29 restaurants → cairo_2026-05-09_talabat.csv
+[2026-05-09T23:50:46.402+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.402+0000] {subprocess.py:93} INFO - ==================================================
+[2026-05-09T23:50:46.403+0000] {subprocess.py:93} INFO - 🍽️  Scraping Talabat: ALEX
+[2026-05-09T23:50:46.406+0000] {subprocess.py:93} INFO - ==================================================
+[2026-05-09T23:50:46.407+0000] {subprocess.py:93} INFO -   📄 Scraping page 1...
+[2026-05-09T23:50:46.408+0000] {subprocess.py:93} INFO -      Found 15 restaurants on page 1
+[2026-05-09T23:50:46.409+0000] {subprocess.py:93} INFO -   📄 Scraping page 2...
+[2026-05-09T23:50:46.410+0000] {subprocess.py:93} INFO -      Found 15 restaurants on page 2
+[2026-05-09T23:50:46.410+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.411+0000] {subprocess.py:93} INFO - ✅ Total unique restaurants found: 30
+[2026-05-09T23:50:46.412+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.413+0000] {subprocess.py:93} INFO -   🔍 [1/30] https://www.talabat.com/egypt/restaurant/503228/tbs--green-plaza?aid=7177
+[2026-05-09T23:50:46.414+0000] {subprocess.py:93} INFO -      Found 114 menu items
+[2026-05-09T23:50:46.415+0000] {subprocess.py:93} INFO -      ✔ TBS | 114 items
+[2026-05-09T23:50:46.416+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.416+0000] {subprocess.py:93} INFO -   🔍 [2/30] https://www.talabat.com/egypt/restaurant/502903/papa-johns-pizza--raml-station?aid=7177
+[2026-05-09T23:50:46.418+0000] {subprocess.py:93} INFO -      Found 74 menu items
+[2026-05-09T23:50:46.419+0000] {subprocess.py:93} INFO -      ✔ Papa John's Pizza | 74 items
+[2026-05-09T23:50:46.420+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.422+0000] {subprocess.py:93} INFO -   🔍 [3/30] https://www.talabat.com/egypt/restaurant/515131/koshary-el-zaiem-raml-station?aid=7177
+[2026-05-09T23:50:46.424+0000] {subprocess.py:93} INFO -      Found 186 menu items
+[2026-05-09T23:50:46.425+0000] {subprocess.py:93} INFO -      ✔ Koshary El Zaiem | 186 items
+[2026-05-09T23:50:46.426+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.427+0000] {subprocess.py:93} INFO -   🔍 [4/30] https://www.talabat.com/egypt/restaurant/627975/pizza-roma-sporting?aid=7177
+[2026-05-09T23:50:46.428+0000] {subprocess.py:93} INFO -      Found 235 menu items
+[2026-05-09T23:50:46.429+0000] {subprocess.py:93} INFO -      ✔ Pizza Roma | 235 items
+[2026-05-09T23:50:46.430+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.431+0000] {subprocess.py:93} INFO -   🔍 [5/30] https://www.talabat.com/egypt/restaurant/505157/misr-el-kheir?aid=7177
+[2026-05-09T23:50:46.432+0000] {subprocess.py:93} INFO -      Found 18 menu items
+[2026-05-09T23:50:46.433+0000] {subprocess.py:93} INFO -      ✔ Misr El-Kheir | 18 items
+[2026-05-09T23:50:46.434+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.435+0000] {subprocess.py:93} INFO -   🔍 [6/30] https://www.talabat.com/egypt/restaurant/781513/marsala-fleming--koliyat-tarbya?aid=7177
+[2026-05-09T23:50:46.436+0000] {subprocess.py:93} INFO -      Found 226 menu items
+[2026-05-09T23:50:46.437+0000] {subprocess.py:93} INFO -      ✔ Marsala | 226 items
+[2026-05-09T23:50:46.439+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.439+0000] {subprocess.py:93} INFO -   🔍 [7/30] https://www.talabat.com/egypt/restaurant/679502/burger-king-semouha?aid=7177
+[2026-05-09T23:50:46.440+0000] {subprocess.py:93} INFO -      Found 90 menu items
+[2026-05-09T23:50:46.441+0000] {subprocess.py:93} INFO -      ✔ Burger King | 90 items
+[2026-05-09T23:50:46.441+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.442+0000] {subprocess.py:93} INFO -   🔍 [8/30] https://www.talabat.com/egypt/restaurant/509645/pablo-stanly?aid=7177
+[2026-05-09T23:50:46.442+0000] {subprocess.py:93} INFO -      Found 175 menu items
+[2026-05-09T23:50:46.443+0000] {subprocess.py:93} INFO -      ✔ Pablo | 175 items
+[2026-05-09T23:50:46.444+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.445+0000] {subprocess.py:93} INFO -   🔍 [9/30] https://www.talabat.com/egypt/restaurant/506150/7-days-crepe--victoria?aid=7177
+[2026-05-09T23:50:46.446+0000] {subprocess.py:93} INFO -      Found 247 menu items
+[2026-05-09T23:50:46.448+0000] {subprocess.py:93} INFO -      ✔ 7 Days Crepe | 247 items
+[2026-05-09T23:50:46.450+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.451+0000] {subprocess.py:93} INFO -   🔍 [10/30] https://www.talabat.com/egypt/restaurant/794155/pidza-raml-station?aid=7177
+[2026-05-09T23:50:46.451+0000] {subprocess.py:93} INFO -      Found 36 menu items
+[2026-05-09T23:50:46.452+0000] {subprocess.py:93} INFO -      ✔ Pidza | 36 items
+[2026-05-09T23:50:46.453+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.454+0000] {subprocess.py:93} INFO -   🔍 [11/30] https://www.talabat.com/egypt/restaurant/503665/sultan-ayub--semouha?aid=7177
+[2026-05-09T23:50:46.455+0000] {subprocess.py:93} INFO -      Found 110 menu items
+[2026-05-09T23:50:46.455+0000] {subprocess.py:93} INFO -      ✔ Sultan Ayub | 110 items
+[2026-05-09T23:50:46.458+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.459+0000] {subprocess.py:93} INFO -   🔍 [12/30] https://www.talabat.com/egypt/restaurant/727214/koshari-zaabalawi-moharam-bek-mosque?aid=7177
+[2026-05-09T23:50:46.460+0000] {subprocess.py:93} INFO -      Found 43 menu items
+[2026-05-09T23:50:46.461+0000] {subprocess.py:93} INFO -      ✔ Koshari Zaabalawi | 43 items
+[2026-05-09T23:50:46.461+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.464+0000] {subprocess.py:93} INFO -   🔍 [13/30] https://www.talabat.com/egypt/restaurant/786525/pubs-pizza-sidi-gaber?aid=7177
+[2026-05-09T23:50:46.465+0000] {subprocess.py:93} INFO -      Found 76 menu items
+[2026-05-09T23:50:46.466+0000] {subprocess.py:93} INFO -      ✔ Pub's Pizza | 76 items
+[2026-05-09T23:50:46.467+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.467+0000] {subprocess.py:93} INFO -   🔍 [14/30] https://www.talabat.com/egypt/restaurant/714187/caribou-camp-chezar-2?aid=7177
+[2026-05-09T23:50:46.474+0000] {subprocess.py:93} INFO -      Found 127 menu items
+[2026-05-09T23:50:46.475+0000] {subprocess.py:93} INFO -      ✔ Caribou | 127 items
+[2026-05-09T23:50:46.476+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.476+0000] {subprocess.py:93} INFO -   🔍 [15/30] https://www.talabat.com/egypt/restaurant/678299/pizza-king-raml-station-el-ataren?aid=7177
+[2026-05-09T23:50:46.477+0000] {subprocess.py:93} INFO -      Found 164 menu items
+[2026-05-09T23:50:46.478+0000] {subprocess.py:93} INFO -      ✔ Pizza King | 164 items
+[2026-05-09T23:50:46.480+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.480+0000] {subprocess.py:93} INFO -   🔍 [16/30] https://www.talabat.com/egypt/restaurant/503554/abou-fares-elsoury-moustafa-kamel?aid=7177
+[2026-05-09T23:50:46.481+0000] {subprocess.py:93} INFO -      Found 117 menu items
+[2026-05-09T23:50:46.484+0000] {subprocess.py:93} INFO -      ✔ Abou Fares Elsoury | 117 items
+[2026-05-09T23:50:46.485+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.487+0000] {subprocess.py:93} INFO -   🔍 [17/30] https://www.talabat.com/egypt/restaurant/749450/bruxies-roushdy?aid=7177
+[2026-05-09T23:50:46.488+0000] {subprocess.py:93} INFO -      Found 208 menu items
+[2026-05-09T23:50:46.490+0000] {subprocess.py:93} INFO -      ✔ Bruxies | 208 items
+[2026-05-09T23:50:46.491+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:50:46.491+0000] {subprocess.py:93} INFO -   🔍 [18/30] https://www.talabat.com/egypt/restaurant/508124/3b-burger-semouha?aid=7177
+[2026-05-09T23:50:46.494+0000] {subprocess.py:93} INFO -      Found 69 menu items
+[2026-05-09T23:50:46.495+0000] {subprocess.py:93} INFO -      ✔ 3B Burger | 69 items
+[2026-05-09T23:52:39.489+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:52:39.497+0000] {subprocess.py:93} INFO -   🔍 [19/30] https://www.talabat.com/egypt/restaurant/659132/mashwyat-gemy-semouha?aid=7177
+[2026-05-09T23:52:39.498+0000] {subprocess.py:93} INFO -      Found 48 menu items
+[2026-05-09T23:52:39.498+0000] {subprocess.py:93} INFO -      ✔ Mashwyat Gemy | 48 items
+[2026-05-09T23:52:39.499+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:52:39.501+0000] {subprocess.py:93} INFO -   🔍 [20/30] https://www.talabat.com/egypt/restaurant/626025/hadarmawot--semouhasemouha?aid=7177
+[2026-05-09T23:52:39.501+0000] {subprocess.py:93} INFO -      Found 125 menu items
+[2026-05-09T23:52:39.502+0000] {subprocess.py:93} INFO -      ✔ Hadarmawot El Sultan | 125 items
+[2026-05-09T23:52:39.504+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:52:39.509+0000] {subprocess.py:93} INFO -   🔍 [21/30] https://www.talabat.com/egypt/restaurant/649724/bazooka-raml-station--tgo?aid=7177
+[2026-05-09T23:52:39.517+0000] {subprocess.py:93} INFO -      Found 118 menu items
+[2026-05-09T23:52:39.521+0000] {subprocess.py:93} INFO -      ✔ Bazooka | 118 items
+[2026-05-09T23:52:39.524+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:52:39.526+0000] {subprocess.py:93} INFO -   🔍 [22/30] https://www.talabat.com/egypt/restaurant/742157/aysh-and-mashawi-azarita?aid=7177
+[2026-05-09T23:52:39.528+0000] {subprocess.py:93} INFO -      Found 110 menu items
+[2026-05-09T23:52:39.529+0000] {subprocess.py:93} INFO -      ✔ Aysh And Mashawi | 110 items
+[2026-05-09T23:52:39.537+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:52:39.538+0000] {subprocess.py:93} INFO -   🔍 [23/30] https://www.talabat.com/egypt/restaurant/631442/al-baraka-bakerybolkly?aid=7177
+[2026-05-09T23:52:39.539+0000] {subprocess.py:93} INFO -      Found 75 menu items
+[2026-05-09T23:52:39.540+0000] {subprocess.py:93} INFO -      ✔ Al Baraka Bakery | 75 items
+[2026-05-09T23:52:39.541+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:52:39.542+0000] {subprocess.py:93} INFO -   🔍 [24/30] https://www.talabat.com/egypt/restaurant/778152/maestro-burger-raml-station?aid=7177
+[2026-05-09T23:52:39.543+0000] {subprocess.py:93} INFO -      Found 45 menu items
+[2026-05-09T23:52:39.544+0000] {subprocess.py:93} INFO -      ✔ Maestro Burger | 45 items
+[2026-05-09T23:52:39.546+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:52:39.548+0000] {subprocess.py:93} INFO -   🔍 [25/30] https://www.talabat.com/egypt/restaurant/628131/crepe-club--sporting-sporting?aid=7177
+[2026-05-09T23:52:39.549+0000] {subprocess.py:93} INFO -      Found 150 menu items
+[2026-05-09T23:52:39.551+0000] {subprocess.py:93} INFO -      ✔ Crepe Club - Sporting | 150 items
+[2026-05-09T23:52:39.552+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:52:39.553+0000] {subprocess.py:93} INFO -   🔍 [26/30] https://www.talabat.com/egypt/restaurant/765219/burger-republic-shatby?aid=7177
+[2026-05-09T23:52:39.555+0000] {subprocess.py:93} INFO -      Found 40 menu items
+[2026-05-09T23:52:39.556+0000] {subprocess.py:93} INFO -      ✔ Burger Republic | 40 items
+[2026-05-09T23:52:39.558+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:52:39.559+0000] {subprocess.py:93} INFO -   🔍 [27/30] https://www.talabat.com/egypt/restaurant/502330/momen--raml-station?aid=7177
+[2026-05-09T23:52:39.560+0000] {subprocess.py:93} INFO -      Found 115 menu items
+[2026-05-09T23:52:39.563+0000] {subprocess.py:93} INFO -      ✔ Mo'men | 115 items
+[2026-05-09T23:52:39.564+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:52:39.565+0000] {subprocess.py:93} INFO -   🔍 [28/30] https://www.talabat.com/egypt/restaurant/505154/texas--semouha?aid=7177
+[2026-05-09T23:52:39.567+0000] {subprocess.py:93} INFO -      Found 54 menu items
+[2026-05-09T23:52:39.568+0000] {subprocess.py:93} INFO -      ✔ Texas | 54 items
+[2026-05-09T23:52:39.569+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:52:39.570+0000] {subprocess.py:93} INFO -   🔍 [29/30] https://www.talabat.com/egypt/restaurant/780903/hassan-fresh-juice-bahary?aid=7177
+[2026-05-09T23:52:39.573+0000] {subprocess.py:93} INFO -      Found 237 menu items
+[2026-05-09T23:52:39.574+0000] {subprocess.py:93} INFO -      ✔ Hassan Fresh Juice | 237 items
+[2026-05-09T23:52:39.575+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:52:39.576+0000] {subprocess.py:93} INFO -   🔍 [30/30] https://www.talabat.com/egypt/restaurant/505775/fegoo-sushi--bokla?aid=7177
+[2026-05-09T23:52:39.579+0000] {subprocess.py:93} INFO -      Found 259 menu items
+[2026-05-09T23:52:39.580+0000] {subprocess.py:93} INFO -      ✔ Fegoo Sushi | 259 items
+[2026-05-09T23:52:39.585+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:52:39.586+0000] {subprocess.py:93} INFO - 💾 Saved 30 restaurants → alex_2026-05-09_talabat.csv
+[2026-05-09T23:52:39.587+0000] {subprocess.py:93} INFO - 
+[2026-05-09T23:52:39.588+0000] {subprocess.py:93} INFO - ✅ Talabat scraping complete.
+[2026-05-09T23:52:40.123+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-05-09T23:52:40.161+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-09T23:52:40.518+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=weekly_data_pipeline, task_id=run_talabat_scraper, run_id=manual__2026-05-09T23:40:35.039580+00:00, execution_date=20260509T234035, start_date=20260509T234039, end_date=20260509T235240
+[2026-05-09T23:52:40.718+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-05-09T23:52:40.885+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-05-09T23:52:40.891+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
